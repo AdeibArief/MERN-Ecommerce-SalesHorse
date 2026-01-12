@@ -104,3 +104,26 @@ npm start
 Frontend will run on `http://localhost:3000`
 
 ## 📁 Project Structure
+
+saleshorse/
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   ├── models/
+│   │   └── Product.js
+│   ├── routes/
+│   │   └── products.js
+│   ├── seed.js
+│   ├── server.js
+│   └── package.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   └── index.js
+│   └── package.json
+└── README.md
