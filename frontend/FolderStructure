@@ -1,0 +1,23 @@
+// FOLDER STRUCTURE:
+// frontend/
+// ├── public/
+// │   └── index.html
+// ├── src/
+// │   ├── components/
+// │   │   ├── Navbar.jsx
+// │   │   ├── ProductCard.jsx
+// │   │   ├── Cart.jsx
+// │   │   └── Footer.jsx
+// │   ├── pages/
+// │   │   ├── Home.jsx
+// │   │   ├── ProductDetail.jsx
+// │   │   └── Checkout.jsx
+// │   ├── context/
+// │   │   └── CartContext.jsx
+// │   ├── services/
+// │   │   └── api.js
+// │   ├── App.jsx
+// │   ├── index.js
+// │   └── index.css
+// ├── tailwind.config.js
+// └── package.json
