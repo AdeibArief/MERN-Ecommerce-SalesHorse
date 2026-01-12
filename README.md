@@ -127,3 +127,56 @@ saleshorse/
 │   │   └── index.js
 │   └── package.json
 └── README.md
+
+
+
+## 🌐 API Endpoints
+
+### Products
+- `GET /api/products` - Get all products
+- `GET /api/products/:id` - Get single product
+- `GET /api/products/category/:category` - Get products by category
+- `POST /api/products` - Create product
+- `PUT /api/products/:id` - Update product
+- `DELETE /api/products/:id` - Delete product
+
+## 🚀 Deployment
+
+### Backend (Render)
+1. Push code to GitHub
+2. Create new Web Service on Render
+3. Connect GitHub repository
+4. Add environment variables
+5. Deploy
+
+### Frontend (Vercel)
+1. Push code to GitHub
+2. Import project on Vercel
+3. Add environment variables
+4. Deploy
+
+## 🔮 Upcoming Features
+
+- [ ] User authentication (login/register)
+- [ ] Payment integration (Stripe)
+- [ ] Order history
+- [ ] Admin dashboard
+- [ ] Product search
+- [ ] User reviews
+- [ ] Wishlist
+- [ ] Email notifications
+
+## 👨‍💻 Author
+
+**Your Name**
+- GitHub: [@yourusername](https://github.com/AdeibArief)
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Acknowledgments
+
+- DaisyUI for the beautiful UI components
+- Unsplash for product images
+- MongoDB Atlas for database hosting
