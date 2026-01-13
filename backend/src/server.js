@@ -14,7 +14,7 @@ const app = express();
 // CORS Configuration for Production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://your-frontend-url.vercel.app' // Update this later
+    ? 'https://mern-ecommerce-sales-horse.vercel.app/' // Update this later
     : 'http://localhost:5173',
   credentials: true
 };
