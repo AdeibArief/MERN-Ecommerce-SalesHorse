@@ -4,7 +4,7 @@ import axios from "axios";
 const isDevelopment = window.location.hostname === "localhost";
 const API_URL = isDevelopment
   ? "http://localhost:5001"
-  : "https://saleshorse-backend.onrender.com/";
+  : "https://saleshorse-backend.onrender.com";
 
 const api = axios.create({
   baseURL: `${API_URL}/api`,
