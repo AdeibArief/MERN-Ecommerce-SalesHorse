@@ -10,18 +10,31 @@ const PORT = process.env.PORT;
 
 const app = express();
 
+// CORS Configuration - Allow your Vercel frontend
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173", // Vite dev server
+  "https://mern-ecommerce-sales-horse-fq0dklmti-adeibariefs-projects.vercel.app", // Your Vercel URL
+  "https://mern-ecommerce-sales-horse.vercel.app", // Production URL (if different)
+];
 
-// CORS Configuration for Production
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? 'https://mern-ecommerce-sales-horse.vercel.app/' // Update this later
-    : 'http://localhost:5173',
-  credentials: true
-};
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
 
-app.use(cors(corsOptions));
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        console.log("Blocked origin:", origin);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to database
