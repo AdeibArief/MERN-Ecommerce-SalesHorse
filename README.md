@@ -2,7 +2,9 @@
 
 A full-stack e-commerce application built with MongoDB, Express, React, and Node.js.
 
-![SalesHorse Homepage](<img width="1913" height="846" alt="image" src="https://github.com/user-attachments/assets/269696d5-a81e-46ca-90f5-59f665ce5d4e" />)
+## SalesHorse Homepage
+
+<img width="1913" height="846" alt="image" src="https://github.com/user-attachments/assets/269696d5-a81e-46ca-90f5-59f665ce5d4e" />
 
 
 ## ✨ Features
