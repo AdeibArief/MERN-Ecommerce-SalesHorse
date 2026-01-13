@@ -1,11 +1,10 @@
 import axios from "axios";
 
-
 // Auto-detect environment
-const isDevelopment = window.location.hostname === 'localhost';
-const API_URL = isDevelopment 
-  ? "https://saleshorse-backend.onrender.com/" 
-  : "http://localhost:5001"; // UPDATE after deploying backend
+const isDevelopment = window.location.hostname === "localhost";
+const API_URL = isDevelopment
+  ? "http://localhost:5001"
+  : "https://saleshorse-backend.onrender.com/";
 
 const api = axios.create({
   baseURL: `${API_URL}/api`,
