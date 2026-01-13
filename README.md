@@ -171,7 +171,7 @@ saleshorse/
 ## 👨‍💻 Author
 
 **Adeib Arief**
-- GitHub: [@yourusername](https://github.com/AdeibArief)
+- GitHub: [@AdeibArief](https://github.com/AdeibArief)
 
 ## 📄 License
 
