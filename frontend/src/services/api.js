@@ -4,7 +4,7 @@ import axios from "axios";
 // Auto-detect environment
 const isDevelopment = window.location.hostname === 'localhost';
 const API_URL = isDevelopment 
-  ? import.meta.env.VITE_API_URL 
+  ? "https://saleshorse-backend.onrender.com/" 
   : "http://localhost:5001"; // UPDATE after deploying backend
 
 const api = axios.create({
