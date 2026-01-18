@@ -42,7 +42,7 @@ const Login = () => {
         <div className="card bg-base-100 shadow-2xl">
           <div className="card-body gap-6">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">Create Account</h2>
+              <h2 className="text-3xl font-bold">Login</h2>
               <p className="text-base-content/60 mt-2">
                 Login to start purchasing...
               </p>
