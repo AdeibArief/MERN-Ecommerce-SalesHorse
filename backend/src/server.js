@@ -3,20 +3,13 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import cors from "cors";
 import productRoutes from "./routes/routes.product.js";
+import authRoutes from "./routes/routes.auth.js";
 
 dotenv.config();
 
 const PORT = process.env.PORT;
 
 const app = express();
-
-// CORS Configuration - Allow your Vercel frontend
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5173", // Vite dev server
-  "https://mern-ecommerce-sales-horse-fq0dklmti-adeibariefs-projects.vercel.app", // Your Vercel URL
-  "https://mern-ecommerce-sales-horse.vercel.app", // Production URL (if different)
-];
 
 app.use(cors());
 app.use(express.json());
@@ -32,12 +25,26 @@ app.get("/", (req, res) => {
     endpoints: {
       products: "/api/products",
       singleProduct: "/api/products/:id",
+      auth: "/api/auth",
     },
   });
 });
 
 app.use("/api/products", productRoutes);
+app.use("/api/auth", authRoutes);
 
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
+
+// Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    message: "Something went wrong!",
+    error: process.env.NODE_ENV === "development" ? err.message : {},
+  });
+});
 app.get("/api/saleshorse/:id", async (req, res) => {
   res.send("This is the product page of the product you clicked");
 });
