@@ -2,7 +2,10 @@
 
 A full-stack e-commerce application built with MongoDB, Express, React, and Node.js.
 
-![SalesHorse Homepage](./screenshot.png)
+## SalesHorse Homepage
+
+<img width="1913" height="846" alt="image" src="https://github.com/user-attachments/assets/269696d5-a81e-46ca-90f5-59f665ce5d4e" />
+
 
 ## ✨ Features
 
@@ -15,13 +18,12 @@ A full-stack e-commerce application built with MongoDB, Express, React, and Node
 
 ## 🚀 Live Demo
 
-- **Frontend:** [Coming Soon]
-- **Backend API:** [Coming Soon]
+![Demo]("https://mern-ecommerce-sales-horse.vercel.app/")
 
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- React 18
+- React 19
 - React Router DOM
 - Tailwind CSS
 - DaisyUI
@@ -168,14 +170,14 @@ saleshorse/
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/AdeibArief)
+**Adeib Arief**
+- GitHub: [@AdeibArief](https://github.com/AdeibArief)
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - DaisyUI for the beautiful UI components
 - Unsplash for product images
