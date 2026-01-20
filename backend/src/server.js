@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 import cors from "cors";
 import productRoutes from "./routes/routes.product.js";
 import authRoutes from "./routes/routes.auth.js";
+import orderRoutes from "./routes/routes.order.js";
 
 dotenv.config();
 
@@ -26,12 +27,14 @@ app.get("/", (req, res) => {
       products: "/api/products",
       singleProduct: "/api/products/:id",
       auth: "/api/auth",
+      orders:"/api/orders"
     },
   });
 });
 
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes); // NEW
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });

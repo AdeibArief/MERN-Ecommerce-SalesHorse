@@ -57,4 +57,56 @@ export const productAPI = {
   },
 };
 
+export const orderAPI = {
+  createOrder: async (orderData, token) => {
+    try {
+      const response = await api.post(`${API_URL}/api/orders`, orderData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error creating order", error);
+      throw error;
+    }
+  },
+
+  getMyOrders: async (token) => {
+    try {
+      const response = await api.get(`${API_URL}/api/orders/myorders`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching orders", error);
+      throw error;
+    }
+  },
+
+  getOrderById: async (id, token) => {
+    try {
+      const response = await api.get(`${API_URL}/api/orders/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching", error);
+      throw error;
+    }
+  },
+
+  cancelOrder:async (id,token) => {
+    try {
+      const response=await api.put(`${API_URL}/api/orders/${id}/cancel`,{},{headers:{Authorization:`Bearer ${token}`}});
+      
+      return response.data
+    } catch (error) {
+      console.error("Error fetching", error);
+      throw error;
+    }
+
+  }
+};
+
 export default api;

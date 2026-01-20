@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-
+import { orderAPI } from '../services/api.js';
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 const CheckOut = () => {
   const navigate = useNavigate();
   const { cart, getCartTotal, clearCart, getCartCount } = useCart();
+  const {user}=useAuth();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -27,20 +30,50 @@ const CheckOut = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     setIsProcessing(true);
 
-    // Simulation of order processing
+    try {
+      // Calculate prices
+      const itemsPrice = getCartTotal();
+      const taxPrice = itemsPrice * 0.08; // 8% tax
+      const shippingPrice = itemsPrice > 50 ? 0 : 10; // Free shipping over $50
+      const totalPrice = itemsPrice + taxPrice + shippingPrice;
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, 2000);
-    });
+      // Prepare order items
+      const orderItems = cart.map(item => ({
+        product: item._id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        image: item.image
+      }));
 
-    window.alert("Order has been placed mate");
-    clearCart();
-    setIsProcessing(false);
-    navigate("/");
+      // Create order
+      const orderData = {
+        orderItems,
+        shippingAddress: formData,
+        paymentMethod: 'Cash on Delivery',
+        itemsPrice: itemsPrice.toFixed(2),
+        taxPrice: taxPrice.toFixed(2),
+        shippingPrice: shippingPrice.toFixed(2),
+        totalPrice: totalPrice.toFixed(2)
+      };
+
+      const response = await orderAPI.createOrder(orderData, user.token);
+
+      if (response.success) {
+        toast.success('Order placed successfully!');
+        clearCart();
+        navigate(`/order/${response.data._id}`);
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast.error('Failed to place order. Please try again.');
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   // Redirect if cart is empty

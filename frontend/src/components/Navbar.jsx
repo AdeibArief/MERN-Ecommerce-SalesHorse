@@ -73,7 +73,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link to="/orders">
+                <Link to="/orders" >
                   <ShoppingCart className="w-5 h-5" />
                   My orders
                 </Link>
